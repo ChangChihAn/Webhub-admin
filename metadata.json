@@ -1,0 +1,5 @@
+{
+  "name": "WebHub Admin",
+  "description": "Secure Admin Dashboard for the WebHub App Marketplace. Features app moderation, security reviews, and developer management with 2FA authentication.",
+  "requestFramePermissions": []
+}
