@@ -27,12 +27,16 @@ export interface User {
   last_login_at: string;
   created_at: string;
   updated_at: string;
+  two_fa_enabled: boolean;
+  two_fa_secret: boolean;
 }
 
 export interface LoginResponse {
-  data: User;
+  data?: User;
   access_token?: string;
   token?: string;
+  requires_2fa: boolean;
+  temp_token?: string;
 }
 
 // =========================
@@ -65,7 +69,7 @@ export interface SubmissionQueueItemResponse {
   app_name: string;
   developer_id?: string;
   developer_name: string;
-  version: string;
+  version_number: string;
   submitted_at: string;
   status: string; // pending | approved | rejected
 }
@@ -96,14 +100,14 @@ export interface ReviewQueueItem {
   appId: string;
   appName: string;
   developerName: string;
-  version: string;
+  version_number: string;
   submittedAt: string;
   status: AppStatus;
 }
 
 export interface AppManifest {
   name: string;
-  version: string;
+  version_number: string;
   description: string;
   permissions: string[];
   themeColor?: string;

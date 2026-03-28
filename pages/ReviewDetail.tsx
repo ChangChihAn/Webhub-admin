@@ -50,7 +50,7 @@ const ReviewDetail: React.FC = () => {
     developerName: item.developer_name || "",
     developerId: item.developer_id || "",
 
-    version: item.version || "1.0.0",
+    version: item.version_number || "1.0.0",
     submittedAt: item.submitted_at || new Date().toISOString(),
 
     status: item.status?.toUpperCase() || "IN_REVIEW",
