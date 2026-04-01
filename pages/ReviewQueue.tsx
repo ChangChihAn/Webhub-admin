@@ -151,7 +151,7 @@ const ReviewQueue: React.FC = () => {
                     <Button
                       size="sm"
                       variant="primary"
-                      // onClick={() => navigate(`/reviews/${sub.id}`)}
+                      onClick={() => navigate(`/reviews/${sub.id}`)}
                     >
                       <Eye className="w-4 h-4 mr-1" />
                       Review

@@ -45,22 +45,30 @@ const Login: React.FC = () => {
       { email, password },
       {
         onSuccess: (res: any) => {
-          console.log("LOGIN RESPONSE:", res);
-          // 🔥 Nếu cần 2FA
+          console.log("LOGIN RESPONSE FULL:", res);
+
+          // ===== 2FA =====
           if (res.requires_2fa) {
             setRequires2FA(true);
             setTempToken(res.temp_token);
             return;
           }
 
-          // 🔥 Nếu login trực tiếp (không có 2FA)
-          if (res.access_token) {
-            localStorage.setItem("accessToken", res.access_token);
-            setUser(res.data);
+          // ===== FLEXIBLE PARSE =====
+          const token = res.data?.access_token || res.access_token || res.token;
 
-            const from = location.state?.from?.pathname || "/dashboard";
-            navigate(from, { replace: true });
+          const user = res.data?.user || res.user || res.data;
+
+          if (!token || !user) {
+            console.error("INVALID RESPONSE:", res);
+            setError("Invalid response from server");
+            return;
           }
+
+          localStorage.setItem("accessToken", token);
+          setUser(user);
+
+          navigate("/dashboard");
         },
         onError: (err) => {
           const axiosError = err as AxiosError<ApiError>;
@@ -87,13 +95,19 @@ const Login: React.FC = () => {
       },
       {
         onSuccess: (res: any) => {
-          // 🔥 LƯU TOKEN CHUẨN
-          localStorage.setItem("accessToken", res.access_token);
+          const token = res.data?.access_token || res.access_token;
 
-          setUser(res.data);
+          const user = res.data?.user || res.user;
 
-          const from = location.state?.from?.pathname || "/dashboard";
-          navigate(from, { replace: true });
+          if (!token || !user) {
+            setError("Invalid 2FA response");
+            return;
+          }
+
+          localStorage.setItem("accessToken", token);
+          setUser(user);
+
+          navigate("/dashboard");
         },
         onError: (err) => {
           const axiosError = err as AxiosError<ApiError>;

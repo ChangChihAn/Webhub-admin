@@ -206,12 +206,93 @@ const ReviewDetail: React.FC = () => {
 
           <Card>
             <CardHeader>
-              <CardTitle>Manifest</CardTitle>
+              <CardTitle className="flex items-center text-lg">
+                <FileJson className="w-5 h-5 mr-2 text-indigo-500" />
+                App Manifest
+              </CardTitle>
             </CardHeader>
-            <CardContent>
-              <pre className="text-xs">
-                {JSON.stringify(submission.manifest, null, 2)}
-              </pre>
+
+            <CardContent className="space-y-6">
+              {/* BASIC INFO */}
+              <div className="space-y-2">
+                <p className="text-sm font-semibold text-slate-700">
+                  Basic Info
+                </p>
+
+                <div className="bg-slate-50 p-3 rounded-md text-sm space-y-1">
+                  <div>
+                    <span className="text-slate-500">Name:</span>{" "}
+                    <span className="font-medium">
+                      {submission.manifest?.name || "N/A"}
+                    </span>
+                  </div>
+
+                  <div>
+                    <span className="text-slate-500">Version:</span>{" "}
+                    <span>{submission.manifest?.version_number}</span>
+                  </div>
+                </div>
+              </div>
+
+              {/* DESCRIPTION */}
+              <div className="space-y-2">
+                <p className="text-sm font-semibold text-slate-700">
+                  Description
+                </p>
+
+                <div className="bg-slate-50 p-3 rounded-md text-sm text-slate-600">
+                  {submission.manifest?.description ||
+                    "No description provided"}
+                </div>
+              </div>
+
+              {/* PERMISSIONS */}
+              <div className="space-y-2">
+                <p className="text-sm font-semibold text-slate-700">
+                  Permissions
+                </p>
+
+                <div className="flex flex-wrap gap-2">
+                  {submission.manifest?.permissions?.length > 0 ? (
+                    submission.manifest.permissions.map((p: string) => (
+                      <Badge key={p} variant="secondary">
+                        {p}
+                      </Badge>
+                    ))
+                  ) : (
+                    <span className="text-xs text-slate-400">
+                      No permissions
+                    </span>
+                  )}
+                </div>
+              </div>
+
+              {/* ICONS */}
+              <div className="space-y-2">
+                <p className="text-sm font-semibold text-slate-700">Icons</p>
+
+                <div className="flex flex-wrap gap-4">
+                  {submission.manifest?.icons?.length > 0 ? (
+                    submission.manifest.icons.map((icon: any, idx: number) => (
+                      <div
+                        key={idx}
+                        className="flex flex-col items-center space-y-1"
+                      >
+                        <img
+                          src={icon.src}
+                          alt="icon"
+                          className="w-12 h-12 rounded border"
+                        />
+                        <span className="text-xs text-slate-500">
+                          {icon.sizes}
+                        </span>
+                      </div>
+                    ))
+                  ) : (
+                    <span className="text-xs text-slate-400">No icons</span>
+                  )}
+                </div>
+              </div>
             </CardContent>
           </Card>
 

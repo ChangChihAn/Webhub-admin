@@ -150,10 +150,11 @@ export interface AppSubmission {
 
 export interface Developer {
   id: string;
-  name: string;
   email: string;
-  joinedAt: string;
-  status: "ACTIVE" | "SUSPENDED";
+  fullName: string;
+  isActive: boolean;
+  createdAt: string;
+  appCount: number;
 }
 
 // =========================

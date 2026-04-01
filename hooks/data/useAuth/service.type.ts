@@ -1,9 +1,20 @@
 import { User } from "../../../types";
 
+// ========================
+// REQUEST
+// ========================
 export interface LoginRequest {
   email: string;
   password: string;
   device_name?: string;
+}
+
+// ========================
+// COMMON RESPONSE DATA
+// ========================
+export interface AuthPayload {
+  access_token: string;
+  user: User;
 }
 
 // ========================
@@ -12,11 +23,13 @@ export interface LoginRequest {
 export interface AuthResponse {
   status: number;
   message: string;
+
+  // 🔥 CASE 2FA
   requires_2fa?: boolean;
   temp_token?: string;
 
-  access_token?: string; // chỉ có khi login không cần 2FA
-  data?: User;
+  // 🔥 CASE SUCCESS
+  data?: AuthPayload;
 }
 
 // ========================
@@ -30,6 +43,5 @@ export interface Verify2FARequest {
 export interface Verify2FAResponse {
   status: number;
   message: string;
-  access_token: string;
-  data: User;
+  data: AuthPayload;
 }
