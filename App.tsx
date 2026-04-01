@@ -17,6 +17,7 @@ import ReviewQueue from "./pages/ReviewQueue";
 import ReviewDetail from "./pages/ReviewDetail";
 import Developers from "./pages/Developers";
 import Settings from "./pages/Settings";
+import AppsManagement from "./pages/AppsManagement";
 
 // Auth Context
 interface AuthContextType extends AuthState {
@@ -132,6 +133,7 @@ const App: React.FC = () => {
               <Route path="dashboard" element={<Dashboard />} />
               <Route path="reviews" element={<ReviewQueue />} />
               <Route path="reviews/:id" element={<ReviewDetail />} />
+              <Route path="apps" element={<AppsManagement />} />
               <Route path="developers" element={<Developers />} />
               <Route path="settings" element={<Settings />} />
             </Route>

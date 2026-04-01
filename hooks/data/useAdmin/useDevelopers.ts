@@ -11,6 +11,7 @@ const mapDeveloper = (item: any): Developer => ({
   isActive: item.is_active,
   createdAt: item.created_at,
   appCount: item.app_count,
+  role: item.role,
 });
 
 export const useDevelopers = () => {

@@ -2,9 +2,32 @@ import React from "react";
 import { Mail, MoreVertical, ShieldBan, CheckCircle } from "lucide-react";
 import { Button, Card, CardContent, Badge } from "../components/ui";
 import { useDevelopers } from "../hooks/data/useAdmin/useDevelopers";
+import { useUpdateUserRole } from "../hooks/data/useAdmin/useUpdateUserRole";
+import { Developer } from "../types";
 
 const Developers: React.FC = () => {
   const { data: developers = [], isLoading } = useDevelopers();
+
+  const updateRoleMutation = useUpdateUserRole();
+
+  const mapDeveloper = (item: any): Developer => ({
+    id: item.id,
+    email: item.email,
+    fullName: item.full_name,
+    isActive: item.is_active,
+    createdAt: item.created_at,
+    appCount: item.app_count,
+    role: item.role,
+  });
+
+  const handleToggleRole = (dev: Developer) => {
+    const newRole = dev.role === "admin" ? "developer" : "admin";
+
+    updateRoleMutation.mutate({
+      id: dev.id,
+      role: newRole,
+    });
+  };
 
   return (
     <div className="space-y-6">
@@ -16,7 +39,6 @@ const Developers: React.FC = () => {
             Manage registered developer accounts.
           </p>
         </div>
-        <Button>Export List</Button>
       </div>
 
       {/* ================= LIST ================= */}
@@ -29,7 +51,7 @@ const Developers: React.FC = () => {
           developers.map((dev) => (
             <Card key={dev.id} className="overflow-hidden">
               {/* TOP BAR */}
-              <div className="h-2 bg-gradient-to-r from-blue-500 to-indigo-500" />
+              <div className="h-2 bg-linear-to-r from-blue-500 to-indigo-500" />
 
               <CardContent className="p-6">
                 {/* ================= HEADER ================= */}
@@ -75,6 +97,20 @@ const Developers: React.FC = () => {
                     <span className="font-semibold">{dev.appCount}</span>
                   </div>
                 </div>
+
+                <div className="flex justify-between items-center mt-2">
+                  <span className="text-xs text-slate-500">Role</span>
+
+                  <Button
+                    size="sm"
+                    variant="outline"
+                    onClick={() => handleToggleRole(dev)}
+                  >
+                    {dev.role === "admin" ? "Set Developer" : "Set Admin"}
+                  </Button>
+                </div>
+
+                <Badge variant="secondary">{dev.role?.toUpperCase()}</Badge>
 
                 {/* ================= ACTION ================= */}
                 <div className="mt-4 pt-4 border-t border-slate-100 flex justify-between">

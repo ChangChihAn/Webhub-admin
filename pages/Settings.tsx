@@ -22,17 +22,17 @@ const Settings: React.FC = () => {
       {/* HEADER */}
       <div>
         <h1 className="text-3xl font-bold text-slate-900">Settings</h1>
-        <p className="text-slate-500">Manage system preferences</p>
+        {/* <p className="text-slate-500">Manage system preferences</p> */}
+        <p className="text-slate-500">Settings not included in MVP</p>
       </div>
 
       {/* CARD */}
-      <Card>
+      {/* <Card>
         <CardHeader>
           <CardTitle>Security</CardTitle>
         </CardHeader>
 
         <CardContent className="flex items-center justify-between">
-          {/* TEXT */}
           <div>
             <p className="font-medium text-slate-900">
               Two-Factor Authentication (2FA)
@@ -42,7 +42,6 @@ const Settings: React.FC = () => {
             </p>
           </div>
 
-          {/* SWITCH */}
           <button
             onClick={handleToggle}
             className={`relative inline-flex h-6 w-11 items-center rounded-full transition-colors duration-300 ${
@@ -56,7 +55,7 @@ const Settings: React.FC = () => {
             />
           </button>
         </CardContent>
-      </Card>
+      </Card> */}
     </div>
   );
 };

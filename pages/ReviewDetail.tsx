@@ -26,6 +26,7 @@ import {
 import { useQuery, useMutation } from "@tanstack/react-query";
 import { adminApi } from "../hooks/data/useAdmin/api";
 import Switch from "../components/ui/Switch";
+import { useAdminSubmission } from "../hooks/useAdminSubmission";
 
 const simulateApi = (cb: () => void, delay = 800) => {
   return new Promise<void>((resolve) => {
@@ -103,40 +104,8 @@ const ReviewDetail: React.FC = () => {
     }
   }, [data]);
 
-  // ✅ MUTATIONS
-  const approveMutation = useMutation({
-    mutationFn: async () => {
-      try {
-        // ✅ Ưu tiên gọi API thật
-        return await adminApi.approveSubmission(submission!.id);
-      } catch (err) {
-        // ✅ fallback nếu API chưa chạy
-        return simulateApi(() => {
-          console.log("Mock approve success");
-        });
-      }
-    },
-    onSuccess: () => {
-      alert("App approved successfully");
-      navigate("/reviews");
-    },
-  });
-
-  const rejectMutation = useMutation({
-    mutationFn: async () => {
-      try {
-        return await adminApi.rejectSubmission(submission!.id, rejectReason);
-      } catch (err) {
-        return simulateApi(() => {
-          console.log("Mock reject:", rejectReason);
-        });
-      }
-    },
-    onSuccess: () => {
-      alert("App rejected successfully");
-      navigate("/reviews");
-    },
-  });
+  const { approveSubmission, rejectSubmission, isApproving, isRejecting } =
+    useAdminSubmission();
 
   const handleCheckToggle = (itemId: string) => {
     setChecklist((prev) =>
@@ -150,16 +119,39 @@ const ReviewDetail: React.FC = () => {
     if (!submission) return;
 
     if (!checklist.every((i) => !i.required || i.checked)) {
-      alert("Please complete all required security checks.");
+      alert("Complete required checks");
       return;
     }
 
-    approveMutation.mutate();
+    approveSubmission(submission.id, {
+      onSuccess: () => {
+        alert("Approved success");
+        navigate("/reviews");
+      },
+      onError: () => {
+        alert("Approve failed");
+      },
+    });
   };
 
   const handleReject = () => {
     if (!submission || !rejectReason) return;
-    rejectMutation.mutate();
+
+    rejectSubmission(
+      {
+        id: submission.id,
+        reason: rejectReason,
+      },
+      {
+        onSuccess: () => {
+          alert("Rejected success");
+          navigate("/reviews");
+        },
+        onError: () => {
+          alert("Reject failed");
+        },
+      },
+    );
   };
 
   if (isLoading)
@@ -202,15 +194,10 @@ const ReviewDetail: React.FC = () => {
         </div>
 
         <div className="flex items-center space-x-3">
-          <Button variant="outline" size="sm">
-            <Download className="w-4 h-4 mr-2" />
-            Download Source
-          </Button>
-
           <Button
             variant="destructive"
             onClick={() => setShowRejectModal(true)}
-            disabled={rejectMutation.isPending}
+            disabled={isRejecting}
           >
             <XCircle className="w-4 h-4 mr-2" />
             Reject
@@ -218,9 +205,9 @@ const ReviewDetail: React.FC = () => {
 
           <Button
             variant="primary"
-            className="bg-green-600 hover:bg-green-700 text-white"
+            className="bg-green-600 text-white"
             onClick={handleApprove}
-            disabled={!allChecksPassed || approveMutation.isPending}
+            disabled={!allChecksPassed || isApproving}
           >
             <CheckCircle className="w-4 h-4 mr-2" />
             Approve

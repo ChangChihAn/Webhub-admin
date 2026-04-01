@@ -155,6 +155,7 @@ export interface Developer {
   isActive: boolean;
   createdAt: string;
   appCount: number;
+  role: string;
 }
 
 // =========================
@@ -165,4 +166,13 @@ export interface AuthState {
   isAuthenticated: boolean;
   user: User | null;
   isLoading: boolean;
+}
+
+export interface AppItem {
+  id: string;
+  name: string;
+  developerName: string;
+  status: "published" | "suspended";
+  createdAt: string;
+  isFeatured: boolean;
 }
