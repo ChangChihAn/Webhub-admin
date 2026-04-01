@@ -166,14 +166,16 @@ const ReviewQueue: React.FC = () => {
                     </Button>
                   )}
 
-                  {/* REVIEW */}
-                  <Button
-                    size="sm"
-                    onClick={() => navigate(`/reviews/${sub.id}`)}
-                  >
-                    <Eye className="w-4 h-4 mr-1" />
-                    Review
-                  </Button>
+                  {/* REVIEW - chỉ hiện khi đã claim (IN_REVIEW) */}
+                  {isClaimed && (
+                    <Button
+                      size="sm"
+                      onClick={() => navigate(`/reviews/${sub.id}`)}
+                    >
+                      <Eye className="w-4 h-4 mr-1" />
+                      Review
+                    </Button>
+                  )}
                 </div>
               </div>
             );

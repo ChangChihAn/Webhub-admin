@@ -210,14 +210,12 @@ const Dashboard: React.FC = () => {
             </div>
 
             {/* PAGINATION */}
-            <div className="flex items-center justify-between mt-4">
+            <div className="flex justify-between p-4">
               <Button
-                size="sm"
-                variant="outline"
                 disabled={page === 1}
                 onClick={() => setPage((prev) => Math.max(prev - 1, 1))}
               >
-                Previous
+                Prev
               </Button>
 
               <div className="flex items-center gap-1">
@@ -229,7 +227,6 @@ const Dashboard: React.FC = () => {
                   ) : (
                     <Button
                       key={`${p}-${idx}`}
-                      size="sm"
                       variant={p === page ? "primary" : "outline"}
                       onClick={() => setPage(Number(p))}
                     >
@@ -240,8 +237,6 @@ const Dashboard: React.FC = () => {
               </div>
 
               <Button
-                size="sm"
-                variant="outline"
                 disabled={page === totalPages}
                 onClick={() =>
                   setPage((prev) => Math.min(prev + 1, totalPages))

@@ -1,0 +1,1957 @@
+{
+  "info": {
+    "_postman_id": "d6514193-4836-4541-aa22-7b9bd1310be9",
+    "name": "My Collection Copy",
+    "description": "### Welcome to Postman! This is your first collection. \n\nCollections are your starting point for building and testing APIs. You can use this one to:\n\n• Group related requests\n• Test your API in real-world scenarios\n• Document and share your requests\n\nUpdate the name and overview whenever you’re ready to make it yours.\n\n[Learn more about Postman Collections.](https://learning.postman.com/docs/collections/collections-overview/)",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "_exporter_id": "51529301",
+    "_collection_link": "https://go.postman.co/collection/51529301-d6514193-4836-4541-aa22-7b9bd1310be9?source=collection_link"
+  },
+  "item": [
+    {
+      "name": "Mobile",
+      "item": [
+        {
+          "name": "Register member",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"email\": \"testusermember@webhub.com\",\n  \"password\": \"Test@123\",\n  \"full_name\": \"Test User member\"\n}\n",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "https://marketplay-sb.blocktrend.xyz/api/auth/register",
+              "protocol": "https",
+              "host": [
+                "marketplay-sb",
+                "blocktrend",
+                "xyz"
+              ],
+              "path": [
+                "api",
+                "auth",
+                "register"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Member Login",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"email\": \"testusermember@webhub.com\",\n  \"password\": \"Test@123\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "https://marketplay-sb.blocktrend.xyz/api/auth/login",
+              "protocol": "https",
+              "host": [
+                "marketplay-sb",
+                "blocktrend",
+                "xyz"
+              ],
+              "path": [
+                "api",
+                "auth",
+                "login"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Member Get Categories",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI0OTAwYzE2NC02ZWMzLTRlMWQtODJlMi1lZGEwZDBmY2ZlMzgiLCJlbWFpbCI6InRlc3R1c2VybWVtYmVyQHdlYmh1Yi5jb20iLCJyb2xlIjoibWVtYmVyIiwiaWF0IjoxNzczNjM4MTYwLCJleHAiOjE3NzQyNDI5NjB9.AFwxUIzKCKb-U0qQ1xCFDv6Vq3-KhO2Cjp8WImu850g",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "GET",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "https://marketplay-sb.blocktrend.xyz/api/store/categories",
+              "protocol": "https",
+              "host": [
+                "marketplay-sb",
+                "blocktrend",
+                "xyz"
+              ],
+              "path": [
+                "api",
+                "store",
+                "categories"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Xem Apps theo Danh mục (Chỉ dùng Category)",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI0OTAwYzE2NC02ZWMzLTRlMWQtODJlMi1lZGEwZDBmY2ZlMzgiLCJlbWFpbCI6InRlc3R1c2VybWVtYmVyQHdlYmh1Yi5jb20iLCJyb2xlIjoibWVtYmVyIiwiaWF0IjoxNzczNjM4MTYwLCJleHAiOjE3NzQyNDI5NjB9.AFwxUIzKCKb-U0qQ1xCFDv6Vq3-KhO2Cjp8WImu850g",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "GET",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": ""
+            },
+            "url": {
+              "raw": "https://marketplay-sb.blocktrend.xyz/api/store/apps?category_id=ad8261c9-26a6-4450-9220-f682c51c2f89",
+              "protocol": "https",
+              "host": [
+                "marketplay-sb",
+                "blocktrend",
+                "xyz"
+              ],
+              "path": [
+                "api",
+                "store",
+                "apps"
+              ],
+              "query": [
+                {
+                  "key": "category_id",
+                  "value": "ad8261c9-26a6-4450-9220-f682c51c2f89"
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Admin Login",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2N2VmOTc0ZC1iYjQ3LTQ4ODUtODM0NS1lNzgwYWY0MTk0MDgiLCJlbWFpbCI6InRlc3R1c2VyQHdlYmh1Yi5jb20iLCJyb2xlIjoibWVtYmVyIiwiaWF0IjoxNzczMzg4NDU5LCJleHAiOjE3NzM5OTMyNTl9.ldJA4vT888yXyLpTrJOU8YOXEc2k_yWx1NpLRD09jOw",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\"email\":\"admin@webhub.com\",\"password\":\"Admin@123\"}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:5001/api/auth/login",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "5001",
+              "path": [
+                "api",
+                "auth",
+                "login"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Tìm kiếm Apps (Search)",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI0OTAwYzE2NC02ZWMzLTRlMWQtODJlMi1lZGEwZDBmY2ZlMzgiLCJlbWFpbCI6InRlc3R1c2VybWVtYmVyQHdlYmh1Yi5jb20iLCJyb2xlIjoibWVtYmVyIiwiaWF0IjoxNzczNjM4MTYwLCJleHAiOjE3NzQyNDI5NjB9.AFwxUIzKCKb-U0qQ1xCFDv6Vq3-KhO2Cjp8WImu850g",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "GET",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": ""
+            },
+            "url": {
+              "raw": "https://marketplay-sb.blocktrend.xyz/api/store/apps?search=My Weather App",
+              "protocol": "https",
+              "host": [
+                "marketplay-sb",
+                "blocktrend",
+                "xyz"
+              ],
+              "path": [
+                "api",
+                "store",
+                "apps"
+              ],
+              "query": [
+                {
+                  "key": "search",
+                  "value": "My Weather App"
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Duyệt Apps (Trending/New)",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI0OTAwYzE2NC02ZWMzLTRlMWQtODJlMi1lZGEwZDBmY2ZlMzgiLCJlbWFpbCI6InRlc3R1c2VybWVtYmVyQHdlYmh1Yi5jb20iLCJyb2xlIjoibWVtYmVyIiwiaWF0IjoxNzczNjM4MTYwLCJleHAiOjE3NzQyNDI5NjB9.AFwxUIzKCKb-U0qQ1xCFDv6Vq3-KhO2Cjp8WImu850g",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "GET",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": ""
+            },
+            "url": {
+              "raw": "https://marketplay-sb.blocktrend.xyz/api/store/apps?sort=new",
+              "protocol": "https",
+              "host": [
+                "marketplay-sb",
+                "blocktrend",
+                "xyz"
+              ],
+              "path": [
+                "api",
+                "store",
+                "apps"
+              ],
+              "query": [
+                {
+                  "key": "sort",
+                  "value": "new"
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Xem chi tiết App",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI0OTAwYzE2NC02ZWMzLTRlMWQtODJlMi1lZGEwZDBmY2ZlMzgiLCJlbWFpbCI6InRlc3R1c2VybWVtYmVyQHdlYmh1Yi5jb20iLCJyb2xlIjoibWVtYmVyIiwiaWF0IjoxNzczNjM4MTYwLCJleHAiOjE3NzQyNDI5NjB9.AFwxUIzKCKb-U0qQ1xCFDv6Vq3-KhO2Cjp8WImu850g",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "GET",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": ""
+            },
+            "url": {
+              "raw": "https://marketplay-sb.blocktrend.xyz/api/store/apps/0e853dab-b221-4325-8962-a532079b6c89",
+              "protocol": "https",
+              "host": [
+                "marketplay-sb",
+                "blocktrend",
+                "xyz"
+              ],
+              "path": [
+                "api",
+                "store",
+                "apps",
+                "0e853dab-b221-4325-8962-a532079b6c89"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Cài đặt App",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI0OTAwYzE2NC02ZWMzLTRlMWQtODJlMi1lZGEwZDBmY2ZlMzgiLCJlbWFpbCI6InRlc3R1c2VybWVtYmVyQHdlYmh1Yi5jb20iLCJyb2xlIjoibWVtYmVyIiwiaWF0IjoxNzczNjM4MTYwLCJleHAiOjE3NzQyNDI5NjB9.AFwxUIzKCKb-U0qQ1xCFDv6Vq3-KhO2Cjp8WImu850g",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": ""
+            },
+            "url": {
+              "raw": "https://marketplay-sb.blocktrend.xyz/api/store/apps/0e853dab-b221-4325-8962-a532079b6c89/install",
+              "protocol": "https",
+              "host": [
+                "marketplay-sb",
+                "blocktrend",
+                "xyz"
+              ],
+              "path": [
+                "api",
+                "store",
+                "apps",
+                "0e853dab-b221-4325-8962-a532079b6c89",
+                "install"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Ghi nhận cập nhật (Mobile download xong báo lại)",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI0OTAwYzE2NC02ZWMzLTRlMWQtODJlMi1lZGEwZDBmY2ZlMzgiLCJlbWFpbCI6InRlc3R1c2VybWVtYmVyQHdlYmh1Yi5jb20iLCJyb2xlIjoibWVtYmVyIiwiaWF0IjoxNzczNjM4MTYwLCJleHAiOjE3NzQyNDI5NjB9.AFwxUIzKCKb-U0qQ1xCFDv6Vq3-KhO2Cjp8WImu850g",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "PUT",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"version_number\": \"1.0.0\"\n}\n",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "https://marketplay-sb.blocktrend.xyz/api/store/apps/app_ID/update",
+              "protocol": "https",
+              "host": [
+                "marketplay-sb",
+                "blocktrend",
+                "xyz"
+              ],
+              "path": [
+                "api",
+                "store",
+                "apps",
+                "app_ID",
+                "update"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Xem danh sách App đã cài",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI0OTAwYzE2NC02ZWMzLTRlMWQtODJlMi1lZGEwZDBmY2ZlMzgiLCJlbWFpbCI6InRlc3R1c2VybWVtYmVyQHdlYmh1Yi5jb20iLCJyb2xlIjoibWVtYmVyIiwiaWF0IjoxNzczNjM4MTYwLCJleHAiOjE3NzQyNDI5NjB9.AFwxUIzKCKb-U0qQ1xCFDv6Vq3-KhO2Cjp8WImu850g",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "GET",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": ""
+            },
+            "url": {
+              "raw": "https://marketplay-sb.blocktrend.xyz/api/store/my-apps",
+              "protocol": "https",
+              "host": [
+                "marketplay-sb",
+                "blocktrend",
+                "xyz"
+              ],
+              "path": [
+                "api",
+                "store",
+                "my-apps"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Kiểm tra Update (Khi chưa update gì)",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI0OTAwYzE2NC02ZWMzLTRlMWQtODJlMi1lZGEwZDBmY2ZlMzgiLCJlbWFpbCI6InRlc3R1c2VybWVtYmVyQHdlYmh1Yi5jb20iLCJyb2xlIjoibWVtYmVyIiwiaWF0IjoxNzczNjM4MTYwLCJleHAiOjE3NzQyNDI5NjB9.AFwxUIzKCKb-U0qQ1xCFDv6Vq3-KhO2Cjp8WImu850g",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "GET",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"version_number\": \"1.0.0\"\n}\n"
+            },
+            "url": {
+              "raw": "https://marketplay-sb.blocktrend.xyz/api/store/apps/0e853dab-b221-4325-8962-a532079b6c89/check-update",
+              "protocol": "https",
+              "host": [
+                "marketplay-sb",
+                "blocktrend",
+                "xyz"
+              ],
+              "path": [
+                "api",
+                "store",
+                "apps",
+                "0e853dab-b221-4325-8962-a532079b6c89",
+                "check-update"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Tạo Review",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI0OTAwYzE2NC02ZWMzLTRlMWQtODJlMi1lZGEwZDBmY2ZlMzgiLCJlbWFpbCI6InRlc3R1c2VybWVtYmVyQHdlYmh1Yi5jb20iLCJyb2xlIjoibWVtYmVyIiwiaWF0IjoxNzczNjM4MTYwLCJleHAiOjE3NzQyNDI5NjB9.AFwxUIzKCKb-U0qQ1xCFDv6Vq3-KhO2Cjp8WImu850g",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"rating\": 5,\n  \"comment\": \"Ứng dụng rất tuyệt vời!\"\n}\n",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "https://marketplay-sb.blocktrend.xyz/api/store/apps/0e853dab-b221-4325-8962-a532079b6c89/reviews",
+              "protocol": "https",
+              "host": [
+                "marketplay-sb",
+                "blocktrend",
+                "xyz"
+              ],
+              "path": [
+                "api",
+                "store",
+                "apps",
+                "0e853dab-b221-4325-8962-a532079b6c89",
+                "reviews"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Xem danh sách Reviews",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI0OTAwYzE2NC02ZWMzLTRlMWQtODJlMi1lZGEwZDBmY2ZlMzgiLCJlbWFpbCI6InRlc3R1c2VybWVtYmVyQHdlYmh1Yi5jb20iLCJyb2xlIjoibWVtYmVyIiwiaWF0IjoxNzczNjM4MTYwLCJleHAiOjE3NzQyNDI5NjB9.AFwxUIzKCKb-U0qQ1xCFDv6Vq3-KhO2Cjp8WImu850g",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "GET",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "https://marketplay-sb.blocktrend.xyz/api/store/apps/0e853dab-b221-4325-8962-a532079b6c89/reviews",
+              "protocol": "https",
+              "host": [
+                "marketplay-sb",
+                "blocktrend",
+                "xyz"
+              ],
+              "path": [
+                "api",
+                "store",
+                "apps",
+                "0e853dab-b221-4325-8962-a532079b6c89",
+                "reviews"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Gỡ cài đặt",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI0OTAwYzE2NC02ZWMzLTRlMWQtODJlMi1lZGEwZDBmY2ZlMzgiLCJlbWFpbCI6InRlc3R1c2VybWVtYmVyQHdlYmh1Yi5jb20iLCJyb2xlIjoibWVtYmVyIiwiaWF0IjoxNzczNjM4MTYwLCJleHAiOjE3NzQyNDI5NjB9.AFwxUIzKCKb-U0qQ1xCFDv6Vq3-KhO2Cjp8WImu850g",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": ""
+            },
+            "url": {
+              "raw": "https://marketplay-sb.blocktrend.xyz/api/store/apps/0e853dab-b221-4325-8962-a532079b6c89/uninstall",
+              "protocol": "https",
+              "host": [
+                "marketplay-sb",
+                "blocktrend",
+                "xyz"
+              ],
+              "path": [
+                "api",
+                "store",
+                "apps",
+                "0e853dab-b221-4325-8962-a532079b6c89",
+                "uninstall"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Lấy tất cả app",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "https://marketplay-sb.blocktrend.xyz/api/store/apps",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "https://marketplay-sb.blocktrend.xyz/api/store/apps",
+              "protocol": "https",
+              "host": [
+                "marketplay-sb",
+                "blocktrend",
+                "xyz"
+              ],
+              "path": [
+                "api",
+                "store",
+                "apps"
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "Admin",
+      "item": [
+        {
+          "name": "Admin Token Change Role",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiJhZDI3MjlmMi1lMWQ2LTQ3ZTQtYmEyNS1iOTg1MGFmOGU2MGIiLCJlbWFpbCI6ImFkbWluQHdlYmh1Yi5jb20iLCJyb2xlIjoiYWRtaW4iLCJpYXQiOjE3NzUwMTI5NDQsImV4cCI6MTc3NTYxNzc0NH0.i7X8sMaqUsNJNz86el3Ln4ETBewfrqUH58Dv1uHVWoc",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "PUT",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\"role\":\"developer\"}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "https://marketplay-sb.blocktrend.xyz/api/user/7a2ad44f-fac1-48ce-b7d0-c855f0d845a9",
+              "protocol": "https",
+              "host": [
+                "marketplay-sb",
+                "blocktrend",
+                "xyz"
+              ],
+              "path": [
+                "api",
+                "user",
+                "7a2ad44f-fac1-48ce-b7d0-c855f0d845a9"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Update User Info (Only Admin Can Update Role of User)",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiJhZDI3MjlmMi1lMWQ2LTQ3ZTQtYmEyNS1iOTg1MGFmOGU2MGIiLCJlbWFpbCI6ImFkbWluQHdlYmh1Yi5jb20iLCJyb2xlIjoiYWRtaW4iLCJpYXQiOjE3NzUwMTI5NDQsImV4cCI6MTc3NTYxNzc0NH0.i7X8sMaqUsNJNz86el3Ln4ETBewfrqUH58Dv1uHVWoc",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "PUT",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:5001/api/user/{id}",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "5001",
+              "path": [
+                "api",
+                "user",
+                "{id}"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Review Queue (Admin)",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiJhZDI3MjlmMi1lMWQ2LTQ3ZTQtYmEyNS1iOTg1MGFmOGU2MGIiLCJlbWFpbCI6ImFkbWluQHdlYmh1Yi5jb20iLCJyb2xlIjoiYWRtaW4iLCJpYXQiOjE3NzQ2ODMzNzIsImV4cCI6MTc3NTI4ODE3Mn0.HNg2YcQqiHel2_a9Sf8U6QeUXKcJYPtgwzx3mSsYSVg",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "GET",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": ""
+            },
+            "url": {
+              "raw": "https://marketplay-sb.blocktrend.xyz/api/admin/queue",
+              "protocol": "https",
+              "host": [
+                "marketplay-sb",
+                "blocktrend",
+                "xyz"
+              ],
+              "path": [
+                "api",
+                "admin",
+                "queue"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Queue with filter (pending or in_review)",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiJhZDI3MjlmMi1lMWQ2LTQ3ZTQtYmEyNS1iOTg1MGFmOGU2MGIiLCJlbWFpbCI6ImFkbWluQHdlYmh1Yi5jb20iLCJyb2xlIjoiYWRtaW4iLCJpYXQiOjE3NzQ2ODMzNzIsImV4cCI6MTc3NTI4ODE3Mn0.HNg2YcQqiHel2_a9Sf8U6QeUXKcJYPtgwzx3mSsYSVg",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "GET",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": ""
+            },
+            "url": {
+              "raw": "https://marketplay-sb.blocktrend.xyz/api/admin/queue?status=pending",
+              "protocol": "https",
+              "host": [
+                "marketplay-sb",
+                "blocktrend",
+                "xyz"
+              ],
+              "path": [
+                "api",
+                "admin",
+                "queue"
+              ],
+              "query": [
+                {
+                  "key": "status",
+                  "value": "pending"
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Get Submissions Details",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiJhZDI3MjlmMi1lMWQ2LTQ3ZTQtYmEyNS1iOTg1MGFmOGU2MGIiLCJlbWFpbCI6ImFkbWluQHdlYmh1Yi5jb20iLCJyb2xlIjoiYWRtaW4iLCJpYXQiOjE3NzQ2ODMzNzIsImV4cCI6MTc3NTI4ODE3Mn0.HNg2YcQqiHel2_a9Sf8U6QeUXKcJYPtgwzx3mSsYSVg",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "GET",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": ""
+            },
+            "url": {
+              "raw": "https://marketplay-sb.blocktrend.xyz/api/admin/submissions/9d4d1b05-eebe-4288-a5ac-561972ae0c94",
+              "protocol": "https",
+              "host": [
+                "marketplay-sb",
+                "blocktrend",
+                "xyz"
+              ],
+              "path": [
+                "api",
+                "admin",
+                "submissions",
+                "9d4d1b05-eebe-4288-a5ac-561972ae0c94"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Claim Submission",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiJhZDI3MjlmMi1lMWQ2LTQ3ZTQtYmEyNS1iOTg1MGFmOGU2MGIiLCJlbWFpbCI6ImFkbWluQHdlYmh1Yi5jb20iLCJyb2xlIjoiYWRtaW4iLCJpYXQiOjE3NzUwNDE1MzgsImV4cCI6MTc3NTY0NjMzOH0.McMueFFZa1Mx_xS8ul7Ei7VoewaNSczpPpp3CQG-Hes",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": ""
+            },
+            "url": {
+              "raw": "https://marketplay-sb.blocktrend.xyz/api/admin/claim/2e1ed669-513e-4e1b-a588-34743380ada3",
+              "protocol": "https",
+              "host": [
+                "marketplay-sb",
+                "blocktrend",
+                "xyz"
+              ],
+              "path": [
+                "api",
+                "admin",
+                "claim",
+                "2e1ed669-513e-4e1b-a588-34743380ada3"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Submission Approve",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiJhZDI3MjlmMi1lMWQ2LTQ3ZTQtYmEyNS1iOTg1MGFmOGU2MGIiLCJlbWFpbCI6ImFkbWluQHdlYmh1Yi5jb20iLCJyb2xlIjoiYWRtaW4iLCJpYXQiOjE3NzQ1NDI5NzksImV4cCI6MTc3NTE0Nzc3OX0.LHwCniCd8zXTRVcUYtC9hsEIxgfsV7O4uNtdPjhXCsU",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": ""
+            },
+            "url": {
+              "raw": "https://marketplay-sb.blocktrend.xyz/api/admin/approve/2e1ed669-513e-4e1b-a588-34743380ada3",
+              "protocol": "https",
+              "host": [
+                "marketplay-sb",
+                "blocktrend",
+                "xyz"
+              ],
+              "path": [
+                "api",
+                "admin",
+                "approve",
+                "2e1ed669-513e-4e1b-a588-34743380ada3"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Reject Submission",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiJhZDI3MjlmMi1lMWQ2LTQ3ZTQtYmEyNS1iOTg1MGFmOGU2MGIiLCJlbWFpbCI6ImFkbWluQHdlYmh1Yi5jb20iLCJyb2xlIjoiYWRtaW4iLCJpYXQiOjE3NzQ1NDI5NzksImV4cCI6MTc3NTE0Nzc3OX0.LHwCniCd8zXTRVcUYtC9hsEIxgfsV7O4uNtdPjhXCsU",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"rejection_reason\": \"App icon is missing and description is too short\"\n}\n",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "https://marketplay-sb.blocktrend.xyz/api/admin/reject/2e1ed669-513e-4e1b-a588-34743380ada3",
+              "protocol": "https",
+              "host": [
+                "marketplay-sb",
+                "blocktrend",
+                "xyz"
+              ],
+              "path": [
+                "api",
+                "admin",
+                "reject",
+                "2e1ed669-513e-4e1b-a588-34743380ada3"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "App Status (suspended or published)",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiJhZDI3MjlmMi1lMWQ2LTQ3ZTQtYmEyNS1iOTg1MGFmOGU2MGIiLCJlbWFpbCI6ImFkbWluQHdlYmh1Yi5jb20iLCJyb2xlIjoiYWRtaW4iLCJpYXQiOjE3NzUwMTI5NDQsImV4cCI6MTc3NTYxNzc0NH0.i7X8sMaqUsNJNz86el3Ln4ETBewfrqUH58Dv1uHVWoc",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "PUT",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{ \"status\": \"published\" }",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "https://marketplay-sb.blocktrend.xyz/api/admin/apps/0e853dab-b221-4325-8962-a532079b6c89/status",
+              "protocol": "https",
+              "host": [
+                "marketplay-sb",
+                "blocktrend",
+                "xyz"
+              ],
+              "path": [
+                "api",
+                "admin",
+                "apps",
+                "0e853dab-b221-4325-8962-a532079b6c89",
+                "status"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Get Developer as Admin",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiJhZDI3MjlmMi1lMWQ2LTQ3ZTQtYmEyNS1iOTg1MGFmOGU2MGIiLCJlbWFpbCI6ImFkbWluQHdlYmh1Yi5jb20iLCJyb2xlIjoiYWRtaW4iLCJpYXQiOjE3NzQ2Nzk5NTcsImV4cCI6MTc3NTI4NDc1N30.v9nwIDI796D8378IYeoCSl6VA2hygTw9YnQApFK0ym4",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "https://marketplay-sb.blocktrend.xyz/api/admin/developers",
+              "protocol": "https",
+              "host": [
+                "marketplay-sb",
+                "blocktrend",
+                "xyz"
+              ],
+              "path": [
+                "api",
+                "admin",
+                "developers"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Get All Users (Admin Only)",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "pm.test(\"Status code is 200\", function () {",
+                  "    pm.response.to.have.status(200);",
+                  "});"
+                ],
+                "type": "text/javascript",
+                "packages": {},
+                "requests": {}
+              }
+            }
+          ],
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiJhZDI3MjlmMi1lMWQ2LTQ3ZTQtYmEyNS1iOTg1MGFmOGU2MGIiLCJlbWFpbCI6ImFkbWluQHdlYmh1Yi5jb20iLCJyb2xlIjoiYWRtaW4iLCJpYXQiOjE3NzUwMTI5NDQsImV4cCI6MTc3NTYxNzc0NH0.i7X8sMaqUsNJNz86el3Ln4ETBewfrqUH58Dv1uHVWoc",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:5001/api/user",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "5001",
+              "path": [
+                "api",
+                "user"
+              ]
+            },
+            "description": "This is a GET request and it is used to \"get\" data from an endpoint. There is no request body for a GET request, but you can use query parameters to help specify the resource you want data on (e.g., in this request, we have `id=1`).\n\nA successful GET response will have a `200 OK` status, and should include some kind of response body - for example, HTML web content or JSON data."
+          },
+          "response": []
+        },
+        {
+          "name": "Get User By ID (Admin Only)",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiJhZDI3MjlmMi1lMWQ2LTQ3ZTQtYmEyNS1iOTg1MGFmOGU2MGIiLCJlbWFpbCI6ImFkbWluQHdlYmh1Yi5jb20iLCJyb2xlIjoiYWRtaW4iLCJpYXQiOjE3NzUwMTI5NDQsImV4cCI6MTc3NTYxNzc0NH0.i7X8sMaqUsNJNz86el3Ln4ETBewfrqUH58Dv1uHVWoc",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "PUT",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\"role\":\"developer\"}"
+            },
+            "url": {
+              "raw": "https://marketplay-sb.blocktrend.xyz/api/user/user_id",
+              "protocol": "https",
+              "host": [
+                "marketplay-sb",
+                "blocktrend",
+                "xyz"
+              ],
+              "path": [
+                "api",
+                "user",
+                "user_id"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Login Admin",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\"email\":\"admin@webhub.com\",\"password\":\"Admin@123\"}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "https://marketplay-sb.blocktrend.xyz/api/auth/login",
+              "protocol": "https",
+              "host": [
+                "marketplay-sb",
+                "blocktrend",
+                "xyz"
+              ],
+              "path": [
+                "api",
+                "auth",
+                "login"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Setup 2FA (Tạo QR code)",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiJhZDI3MjlmMi1lMWQ2LTQ3ZTQtYmEyNS1iOTg1MGFmOGU2MGIiLCJlbWFpbCI6ImFkbWluQHdlYmh1Yi5jb20iLCJyb2xlIjoiYWRtaW4iLCJpYXQiOjE3NzUwMTI5NDQsImV4cCI6MTc3NTYxNzc0NH0.i7X8sMaqUsNJNz86el3Ln4ETBewfrqUH58Dv1uHVWoc",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "POST",
+            "header": [],
+            "url": {
+              "raw": "https://marketplay-sb.blocktrend.xyz/api/auth/2fa/setup",
+              "protocol": "https",
+              "host": [
+                "marketplay-sb",
+                "blocktrend",
+                "xyz"
+              ],
+              "path": [
+                "api",
+                "auth",
+                "2fa",
+                "setup"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Verify 2FA lần 2 (Đã bật rồi)",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiJhZDI3MjlmMi1lMWQ2LTQ3ZTQtYmEyNS1iOTg1MGFmOGU2MGIiLCJlbWFpbCI6ImFkbWluQHdlYmh1Yi5jb20iLCJyb2xlIjoiYWRtaW4iLCJpYXQiOjE3NzUwMTI5NDQsImV4cCI6MTc3NTYxNzc0NH0.i7X8sMaqUsNJNz86el3Ln4ETBewfrqUH58Dv1uHVWoc",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"otp_code\": \"<mã_6_số_từ_Google_Authenticator>\"\n}\n",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "https://marketplay-sb.blocktrend.xyz/api/auth/2fa/verify",
+              "protocol": "https",
+              "host": [
+                "marketplay-sb",
+                "blocktrend",
+                "xyz"
+              ],
+              "path": [
+                "api",
+                "auth",
+                "2fa",
+                "verify"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Validate OTP (Mã đúng → Nhận JWT)",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiJhZDI3MjlmMi1lMWQ2LTQ3ZTQtYmEyNS1iOTg1MGFmOGU2MGIiLCJlbWFpbCI6ImFkbWluQHdlYmh1Yi5jb20iLCJyb2xlIjoiYWRtaW4iLCJpYXQiOjE3NzUwMTI5NDQsImV4cCI6MTc3NTYxNzc0NH0.i7X8sMaqUsNJNz86el3Ln4ETBewfrqUH58Dv1uHVWoc",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"temp_token\": \"<temp_token\",\n  \"otp_code\": \"<mã_6_số>\"\n}\n",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "https://marketplay-sb.blocktrend.xyz/api/auth/2fa/validate",
+              "protocol": "https",
+              "host": [
+                "marketplay-sb",
+                "blocktrend",
+                "xyz"
+              ],
+              "path": [
+                "api",
+                "auth",
+                "2fa",
+                "validate"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Disable 2FA",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiJhZDI3MjlmMi1lMWQ2LTQ3ZTQtYmEyNS1iOTg1MGFmOGU2MGIiLCJlbWFpbCI6ImFkbWluQHdlYmh1Yi5jb20iLCJyb2xlIjoiYWRtaW4iLCJpYXQiOjE3NzUwMTI5NDQsImV4cCI6MTc3NTYxNzc0NH0.i7X8sMaqUsNJNz86el3Ln4ETBewfrqUH58Dv1uHVWoc",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"otp_code\": \"<mã_6_số>\"\n}\n",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "https://marketplay-sb.blocktrend.xyz/api/auth/2fa/disable",
+              "protocol": "https",
+              "host": [
+                "marketplay-sb",
+                "blocktrend",
+                "xyz"
+              ],
+              "path": [
+                "api",
+                "auth",
+                "2fa",
+                "disable"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Set App thành Featured (Bởi Admin)",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiJhZDI3MjlmMi1lMWQ2LTQ3ZTQtYmEyNS1iOTg1MGFmOGU2MGIiLCJlbWFpbCI6ImFkbWluQHdlYmh1Yi5jb20iLCJyb2xlIjoiYWRtaW4iLCJpYXQiOjE3NzUwMTI5NDQsImV4cCI6MTc3NTYxNzc0NH0.i7X8sMaqUsNJNz86el3Ln4ETBewfrqUH58Dv1uHVWoc",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "PUT",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"is_featured\": true\n}\n",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "https://marketplay-sb.blocktrend.xyz/api/admin/apps/0e853dab-b221-4325-8962-a532079b6c89/featured",
+              "protocol": "https",
+              "host": [
+                "marketplay-sb",
+                "blocktrend",
+                "xyz"
+              ],
+              "path": [
+                "api",
+                "admin",
+                "apps",
+                "0e853dab-b221-4325-8962-a532079b6c89",
+                "featured"
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "Developer",
+      "item": [
+        {
+          "name": "Dev Login Local test",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\"email\":\"dev@webhub.com\",\"password\":\"Dev@12345\"}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:5001/api/auth/login",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "5001",
+              "path": [
+                "api",
+                "auth",
+                "login"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Login Dev",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"email\": \"testdev@webhub.com\",\n  \"password\": \"Test@123\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "https://marketplay-sb.blocktrend.xyz/api/auth/login",
+              "protocol": "https",
+              "host": [
+                "marketplay-sb",
+                "blocktrend",
+                "xyz"
+              ],
+              "path": [
+                "api",
+                "auth",
+                "login"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Register developer",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\"email\":\"dev@webhub.com\",\"password\":\"Dev@12345\",\"full_name\":\"John Developer\"}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:5001/api/auth/register",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "5001",
+              "path": [
+                "api",
+                "auth",
+                "register"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "GET Categories as developer",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI3YTJhZDQ0Zi1mYWMxLTQ4Y2UtYjdkMC1jODU1ZjBkODQ1YTkiLCJlbWFpbCI6InRlc3RkZXZAd2ViaHViLmNvbSIsInJvbGUiOiJkZXZlbG9wZXIiLCJpYXQiOjE3NzMyMjU4MTEsImV4cCI6MTc3MzgzMDYxMX0.QCqKrIHbOX8cAOBR8Jp5Az1HC23e6-R-eW6oIAhzw4U",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "GET",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "https://marketplay-sb.blocktrend.xyz/api/developer/categories",
+              "protocol": "https",
+              "host": [
+                "marketplay-sb",
+                "blocktrend",
+                "xyz"
+              ],
+              "path": [
+                "api",
+                "developer",
+                "categories"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Create App as developer",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI3YTJhZDQ0Zi1mYWMxLTQ4Y2UtYjdkMC1jODU1ZjBkODQ1YTkiLCJlbWFpbCI6InRlc3RkZXZAd2ViaHViLmNvbSIsInJvbGUiOiJkZXZlbG9wZXIiLCJpYXQiOjE3NzMyMjU4MTEsImV4cCI6MTc3MzgzMDYxMX0.QCqKrIHbOX8cAOBR8Jp5Az1HC23e6-R-eW6oIAhzw4U",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"My Weather App\",\n  \"short_description\": \"Check weather forecast easily\",\n  \"description\": \"A beautiful weather web app built with HTML/CSS/JS\",\n  \"category_id\": \"ad8261c9-26a6-4450-9220-f682c51c2f89\"\n}\n",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "https://marketplay-sb.blocktrend.xyz/api/developer/apps",
+              "protocol": "https",
+              "host": [
+                "marketplay-sb",
+                "blocktrend",
+                "xyz"
+              ],
+              "path": [
+                "api",
+                "developer",
+                "apps"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "List My Apps as developer",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiJiN2I2MDA4OC1lZTJkLTQ4ODUtYjQ5YS03OTgzZTlkYjM5YjQiLCJlbWFpbCI6ImRldkB3ZWJodWIuY29tIiwicm9sZSI6ImRldmVsb3BlciIsImlhdCI6MTc3Mzc5NTA4OCwiZXhwIjoxNzc0Mzk5ODg4fQ.5k5wtiBs1qOGorLj55S_CHioNkVBq0yNtCC56h6ONUc",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "GET",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": ""
+            },
+            "url": {
+              "raw": "http://localhost:5001/api/developer/apps",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "5001",
+              "path": [
+                "api",
+                "developer",
+                "apps"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Get app details",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiJiN2I2MDA4OC1lZTJkLTQ4ODUtYjQ5YS03OTgzZTlkYjM5YjQiLCJlbWFpbCI6ImRldkB3ZWJodWIuY29tIiwicm9sZSI6ImRldmVsb3BlciIsImlhdCI6MTc3Mzc5NTA4OCwiZXhwIjoxNzc0Mzk5ODg4fQ.5k5wtiBs1qOGorLj55S_CHioNkVBq0yNtCC56h6ONUc",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:5001/api/developer/apps/3bba9b25-2bf2-49b5-b0c6-133062a31f6e",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "5001",
+              "path": [
+                "api",
+                "developer",
+                "apps",
+                "3bba9b25-2bf2-49b5-b0c6-133062a31f6e"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Update App",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI3YTJhZDQ0Zi1mYWMxLTQ4Y2UtYjdkMC1jODU1ZjBkODQ1YTkiLCJlbWFpbCI6InRlc3RkZXZAd2ViaHViLmNvbSIsInJvbGUiOiJkZXZlbG9wZXIiLCJpYXQiOjE3NzMyMjU4MTEsImV4cCI6MTc3MzgzMDYxMX0.QCqKrIHbOX8cAOBR8Jp5Az1HC23e6-R-eW6oIAhzw4U",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "PUT",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"short_description\": \"Updated: Best weather app!\"\n}\n",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "https://marketplay-sb.blocktrend.xyz/api/developer/apps/0e853dab-b221-4325-8962-a532079b6c89",
+              "protocol": "https",
+              "host": [
+                "marketplay-sb",
+                "blocktrend",
+                "xyz"
+              ],
+              "path": [
+                "api",
+                "developer",
+                "apps",
+                "0e853dab-b221-4325-8962-a532079b6c89"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Create version Upload file",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiJiN2I2MDA4OC1lZTJkLTQ4ODUtYjQ5YS03OTgzZTlkYjM5YjQiLCJlbWFpbCI6ImRldkB3ZWJodWIuY29tIiwicm9sZSI6ImRldmVsb3BlciIsImlhdCI6MTc3Mzc5NTA4OCwiZXhwIjoxNzc0Mzk5ODg4fQ.5k5wtiBs1qOGorLj55S_CHioNkVBq0yNtCC56h6ONUc",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "formdata",
+              "formdata": [
+                {
+                  "key": "version_number",
+                  "value": "2.0.0",
+                  "type": "text",
+                  "uuid": "668c49c8-37dc-4d4a-af37-caf618bab562"
+                },
+                {
+                  "key": "package",
+                  "type": "file",
+                  "uuid": "51f8eec5-d186-4a11-852d-fdde209f470c",
+                  "src": "postman-cloud:///1f1161c4-ef76-4ed0-a113-b3b201463417"
+                }
+              ]
+            },
+            "url": {
+              "raw": "http://localhost:5001/api/developer/apps/0e853dab-b221-4325-8962-a532079b6c89/versions",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "5001",
+              "path": [
+                "api",
+                "developer",
+                "apps",
+                "0e853dab-b221-4325-8962-a532079b6c89",
+                "versions"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Submit for review",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI3YTJhZDQ0Zi1mYWMxLTQ4Y2UtYjdkMC1jODU1ZjBkODQ1YTkiLCJlbWFpbCI6InRlc3RkZXZAd2ViaHViLmNvbSIsInJvbGUiOiJkZXZlbG9wZXIiLCJpYXQiOjE3NzMyMjU4MTEsImV4cCI6MTc3MzgzMDYxMX0.QCqKrIHbOX8cAOBR8Jp5Az1HC23e6-R-eW6oIAhzw4U",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "POST",
+            "header": [],
+            "url": {
+              "raw": "https://marketplay-sb.blocktrend.xyz/api/developer/apps/0e853dab-b221-4325-8962-a532079b6c89/versions/92ef3895-2d39-416a-91dc-b0e761f56c9a/submit",
+              "protocol": "https",
+              "host": [
+                "marketplay-sb",
+                "blocktrend",
+                "xyz"
+              ],
+              "path": [
+                "api",
+                "developer",
+                "apps",
+                "0e853dab-b221-4325-8962-a532079b6c89",
+                "versions",
+                "92ef3895-2d39-416a-91dc-b0e761f56c9a",
+                "submit"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Thống kê tổng quan (Overview)",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI3YTJhZDQ0Zi1mYWMxLTQ4Y2UtYjdkMC1jODU1ZjBkODQ1YTkiLCJlbWFpbCI6InRlc3RkZXZAd2ViaHViLmNvbSIsInJvbGUiOiJkZXZlbG9wZXIiLCJpYXQiOjE3NzQyNDAzMjksImV4cCI6MTc3NDg0NTEyOX0.h1OINCjCb1hP24XHpho6XBsWR_dGGtpJGev5Ncs1R_s",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "https://marketplay-sb.blocktrend.xyz/api/developer/stats/overview",
+              "protocol": "https",
+              "host": [
+                "marketplay-sb",
+                "blocktrend",
+                "xyz"
+              ],
+              "path": [
+                "api",
+                "developer",
+                "stats",
+                "overview"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Thống kê từng App",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI3YTJhZDQ0Zi1mYWMxLTQ4Y2UtYjdkMC1jODU1ZjBkODQ1YTkiLCJlbWFpbCI6InRlc3RkZXZAd2ViaHViLmNvbSIsInJvbGUiOiJkZXZlbG9wZXIiLCJpYXQiOjE3NzQyNDAzMjksImV4cCI6MTc3NDg0NTEyOX0.h1OINCjCb1hP24XHpho6XBsWR_dGGtpJGev5Ncs1R_s",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "https://marketplay-sb.blocktrend.xyz/api/developer/stats/apps",
+              "protocol": "https",
+              "host": [
+                "marketplay-sb",
+                "blocktrend",
+                "xyz"
+              ],
+              "path": [
+                "api",
+                "developer",
+                "stats",
+                "apps"
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "Register",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "exec": [
+              "pm.test(\"Successful POST request\", function () {",
+              "    pm.expect(pm.response.code).to.be.oneOf([200, 201]);",
+              "});",
+              ""
+            ],
+            "type": "text/javascript",
+            "packages": {},
+            "requests": {}
+          }
+        }
+      ],
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"email\": \"devRole3@test.com\",\n  \"password\": \"Test@123\",\n  \"full_name\": \"Developer Name\",\n  \"role\": \"developer\"\n}\n",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "https://marketplay-sb.blocktrend.xyz/api/auth/register",
+          "protocol": "https",
+          "host": [
+            "marketplay-sb",
+            "blocktrend",
+            "xyz"
+          ],
+          "path": [
+            "api",
+            "auth",
+            "register"
+          ]
+        },
+        "description": "This is a POST request, submitting data to an API via the request body. This request submits JSON data, and the data is reflected in the response.\n\nA successful POST request typically returns a `200 OK` or `201 Created` response code."
+      },
+      "response": []
+    },
+    {
+      "name": "Login",
+      "request": {
+        "auth": {
+          "type": "bearer",
+          "bearer": [
+            {
+              "key": "token",
+              "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiJhZDI3MjlmMi1lMWQ2LTQ3ZTQtYmEyNS1iOTg1MGFmOGU2MGIiLCJpYXQiOjE3NzQ1NDI1MDYsImV4cCI6MTc3NDU0MjgwNn0.EIyz-dQI_0gD7Qwyj9beomXx7Yv_UnJW9edt3u0SUJw",
+              "type": "string"
+            }
+          ]
+        },
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\"email\":\"admin@webhub.com\",\"password\":\"Admin@123\"}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "https://marketplay-sb.blocktrend.xyz/api/auth/login",
+          "protocol": "https",
+          "host": [
+            "marketplay-sb",
+            "blocktrend",
+            "xyz"
+          ],
+          "path": [
+            "api",
+            "auth",
+            "login"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "User Profile",
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      },
+      "request": {
+        "method": "GET",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": ""
+        },
+        "url": {
+          "raw": "http://localhost:5001/api/user/me",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "5001",
+          "path": [
+            "api",
+            "user",
+            "me"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Login Member local test",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"email\": \"testuser@webhub.com\",\n  \"password\": \"Test@123\"\n}\n",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:5001/api/auth/login",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "5001",
+          "path": [
+            "api",
+            "auth",
+            "login"
+          ]
+        }
+      },
+      "response": []
+    }
+  ]
+}

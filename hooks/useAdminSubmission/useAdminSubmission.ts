@@ -17,10 +17,10 @@ export const useAdminSubmission = () => {
 
     onSuccess: () => {
       queryClient.invalidateQueries({
-        queryKey: [ADMIN_SUBMISSION_KEY],
+        queryKey: ["admin-queue"],
       });
       queryClient.invalidateQueries({
-        queryKey: ["review-queue"],
+        queryKey: [ADMIN_SUBMISSION_KEY],
       });
     },
   });
@@ -31,7 +31,7 @@ export const useAdminSubmission = () => {
   const approveMutation = useMutation({
     mutationFn: (id: string) => adminSubmissionApi.approveSubmission(id),
     onSuccess: () => {
-      queryClient.invalidateQueries({ queryKey: ["review-queue"] });
+      queryClient.invalidateQueries({ queryKey: ["admin-queue"] });
       queryClient.invalidateQueries({ queryKey: ["submission-detail"] });
     },
     onError: (err) => {
@@ -48,10 +48,10 @@ export const useAdminSubmission = () => {
 
     onSuccess: () => {
       queryClient.invalidateQueries({
-        queryKey: [ADMIN_SUBMISSION_KEY],
+        queryKey: ["admin-queue"],
       });
       queryClient.invalidateQueries({
-        queryKey: ["review-queue"],
+        queryKey: [ADMIN_SUBMISSION_KEY],
       });
     },
   });
