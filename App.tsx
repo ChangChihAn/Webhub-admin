@@ -1,15 +1,22 @@
-import React, { createContext, useContext, useState, useEffect } from 'react';
-import { HashRouter, Routes, Route, Navigate, useLocation } from 'react-router-dom';
-import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
-import { AuthState, User } from './types';
-import { DashboardLayout } from './components/templates/DashboardLayout';
+import React, { createContext, useContext, useState, useEffect } from "react";
+import {
+  HashRouter,
+  Routes,
+  Route,
+  Navigate,
+  useLocation,
+} from "react-router-dom";
+import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
+import { AuthState, User } from "./types";
+import { DashboardLayout } from "./components/templates/DashboardLayout";
 
 // Pages
-import Login from './pages/Login';
-import Dashboard from './pages/Dashboard';
-import ReviewQueue from './pages/ReviewQueue';
-import ReviewDetail from './pages/ReviewDetail';
-import Developers from './pages/Developers';
+import Login from "./pages/Login";
+import Dashboard from "./pages/Dashboard";
+import ReviewQueue from "./pages/ReviewQueue";
+import ReviewDetail from "./pages/ReviewDetail";
+import Developers from "./pages/Developers";
+import Settings from "./pages/Settings";
 
 // Auth Context
 interface AuthContextType extends AuthState {
@@ -21,11 +28,13 @@ const AuthContext = createContext<AuthContextType | null>(null);
 
 export const useAuth = () => {
   const context = useContext(AuthContext);
-  if (!context) throw new Error('useAuth must be used within an AuthProvider');
+  if (!context) throw new Error("useAuth must be used within an AuthProvider");
   return context;
 };
 
-const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
+const AuthProvider: React.FC<{ children: React.ReactNode }> = ({
+  children,
+}) => {
   const [state, setState] = useState<AuthState>({
     isAuthenticated: false,
     user: null,
@@ -34,29 +43,29 @@ const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => 
 
   useEffect(() => {
     // Check for existing session
-    const token = localStorage.getItem('accessToken');
-    const userStr = localStorage.getItem('user');
-    
+    const token = localStorage.getItem("accessToken");
+    const userStr = localStorage.getItem("user");
+
     if (token && userStr) {
       try {
         const user = JSON.parse(userStr);
         setState({
           isAuthenticated: true,
           user,
-          isLoading: false
+          isLoading: false,
         });
       } catch (e) {
-        localStorage.removeItem('user');
-        setState(prev => ({ ...prev, isLoading: false }));
+        localStorage.removeItem("user");
+        setState((prev) => ({ ...prev, isLoading: false }));
       }
     } else {
-      setState(prev => ({ ...prev, isLoading: false }));
+      setState((prev) => ({ ...prev, isLoading: false }));
     }
   }, []);
 
   const logout = () => {
-    localStorage.removeItem('accessToken');
-    localStorage.removeItem('user');
+    localStorage.removeItem("accessToken");
+    localStorage.removeItem("user");
     setState({ isAuthenticated: false, user: null, isLoading: false });
   };
 
@@ -65,9 +74,11 @@ const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => 
   };
 
   if (state.isLoading) {
-    return <div className="min-h-screen flex items-center justify-center bg-slate-50">
-      <div className="w-8 h-8 border-4 border-blue-600 border-t-transparent rounded-full animate-spin"></div>
-    </div>;
+    return (
+      <div className="min-h-screen flex items-center justify-center bg-slate-50">
+        <div className="w-8 h-8 border-4 border-blue-600 border-t-transparent rounded-full animate-spin"></div>
+      </div>
+    );
   }
 
   return (
@@ -78,7 +89,9 @@ const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => 
 };
 
 // Protected Route Component
-const ProtectedRoute: React.FC<{ children: React.ReactNode }> = ({ children }) => {
+const ProtectedRoute: React.FC<{ children: React.ReactNode }> = ({
+  children,
+}) => {
   const { isAuthenticated } = useAuth();
   const location = useLocation();
 
@@ -106,18 +119,21 @@ const App: React.FC = () => {
         <HashRouter>
           <Routes>
             <Route path="/login" element={<Login />} />
-            
-            <Route path="/" element={
-              <ProtectedRoute>
-                <DashboardLayout />
-              </ProtectedRoute>
-            }>
+
+            <Route
+              path="/"
+              element={
+                <ProtectedRoute>
+                  <DashboardLayout />
+                </ProtectedRoute>
+              }
+            >
               <Route index element={<Navigate to="/dashboard" replace />} />
               <Route path="dashboard" element={<Dashboard />} />
               <Route path="reviews" element={<ReviewQueue />} />
               <Route path="reviews/:id" element={<ReviewDetail />} />
               <Route path="developers" element={<Developers />} />
-              <Route path="settings" element={<div className="p-4">Settings (Not implemented in MVP)</div>} />
+              <Route path="settings" element={<Settings />} />
             </Route>
           </Routes>
         </HashRouter>

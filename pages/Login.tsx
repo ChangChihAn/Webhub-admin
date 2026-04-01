@@ -48,9 +48,16 @@ const Login: React.FC = () => {
           console.log("LOGIN RESPONSE FULL:", res);
 
           // ===== 2FA =====
-          if (res.requires_2fa) {
+          const enable2FA = localStorage.getItem("enable2FA") !== "false";
+
+          if (res.requires_2fa && enable2FA) {
             setRequires2FA(true);
-            setTempToken(res.temp_token);
+            setTempToken(res.temp_token!);
+            return;
+          }
+
+          if (res.requires_2fa && !enable2FA) {
+            setError("2FA is required by server. Cannot bypass.");
             return;
           }
 
@@ -65,8 +72,11 @@ const Login: React.FC = () => {
             return;
           }
 
-          localStorage.setItem("accessToken", token);
-          setUser(user);
+          if (token) localStorage.setItem("accessToken", token);
+          if (user) {
+            localStorage.setItem("user", JSON.stringify(user));
+            setUser(user);
+          }
 
           navigate("/dashboard");
         },
@@ -105,6 +115,7 @@ const Login: React.FC = () => {
           }
 
           localStorage.setItem("accessToken", token);
+          localStorage.setItem("user", JSON.stringify(user));
           setUser(user);
 
           navigate("/dashboard");
